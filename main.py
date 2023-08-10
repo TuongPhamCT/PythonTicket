@@ -1,10 +1,16 @@
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager
 
-class MyApp(App):
+from screens.SignUpScreen import SignUpScreen
+
+
+class MovieApp(App):
     def build(self):
-        pass
+        screen_manager = ScreenManager()
         
-        
-if __name__ == "__main__":
-    app = MyApp()
-    app.run
+        screen_manager.add_widget(SignUpScreen(name='signup'))
+    
+        return screen_manager
+
+if __name__ == '__main__':
+    MovieApp().run()
