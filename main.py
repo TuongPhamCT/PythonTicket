@@ -1,10 +1,20 @@
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager
 
-class MyApp(App):
+from screens.splash import Splash
+from screens.onboarding import Onboarding
+from screens.login import LoginScreen
+
+
+class MovieApp(App):
     def build(self):
-        pass
+        screen_manager = ScreenManager()
         
-        
-if __name__ == "__main__":
-    app = MyApp()
-    app.run
+        screen_manager.add_widget(Onboarding(name='onboarding'))
+        screen_manager.add_widget(LoginScreen(name='login'))
+        screen_manager.add_widget(Splash(name='splash'))
+    
+        return screen_manager
+
+if __name__ == '__main__':
+    MovieApp().run()
