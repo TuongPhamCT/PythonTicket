@@ -37,11 +37,31 @@ Builder.load_string("""
                 width: 40
         Widget:
             size_hint: None, None
-            height: 100
-        
+            height: 50
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {'center_x': 0.5, 'center_y': 1}
+            canvas:
+                Color:
+                    rgb: 1, 1, 1
+                Ellipse:
+                    pos: self.pos
+                    size: 100, 100
+                    source: 'assets/images/profile.png'
+                    angle_start: 0
+                    angle_end: 360
+            Image:
+                size: 30, 30
+                source: 'assets/images/add.png'
+                size_hint: None, None
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                
         Widget:
             size_hint: None, None
-            height: 10
+            height: 50
         TextInput:
             id: fullnameip
             hint_text: 'Full Name'
@@ -134,8 +154,6 @@ Builder.load_string("""
             size_hint_y: None
             height: 50
 """)
-
-
 
 
 class SignUpScreen(Screen):
